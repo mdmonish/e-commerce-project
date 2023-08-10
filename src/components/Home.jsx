@@ -1,25 +1,35 @@
 import { useSelector } from "react-redux";
-import "./home.css";
 
-function Home({ search,addToCart }) {
-  const prod = useSelector(state=>state.prod.product)
+function Home({ search, addToCart }) {
+  const prod = useSelector(state => state.prod.product);
+
   return (
-    <div style={{ display: "flex", flexFlow: "wrap", marginLeft: 80 }}>
-      <>
-        {prod
-          .filter((item) => {
-            if (item.title.toLowerCase().includes(search.toLowerCase()))
-              return item;
-          })
-          .map((item) => (
-            <div className="container" key={item.id}>
-              <img src={item.image} alt="source not available"></img>
-              <div style={{height: 40}}><h5>{item.title}</h5></div>
-              <h6>$&nbsp;{item.price}</h6>
-              <button onClick={() => addToCart(item)}>Add to Cart</button>
+    <div
+     className="home__container"
+    >
+      {prod
+        .filter(item => {
+          if (item.title.toLowerCase().includes(search.toLowerCase()))
+            return item;
+        })
+        .map(item => (
+          <div
+            style={{  }}
+            className="prod__container"
+            key={item.id}
+          >
+            <img
+              className="prod__image"
+              src={item.image}
+              alt="source not available"
+            ></img>
+            <h3>{item.title}</h3>
+            <div clasName="prod__price__container">
+              <h4>$&nbsp;{item.price}</h4>
+              <button className="add__btn" onClick={() => addToCart(item)}>Add to Cart</button>
             </div>
-          ))}
-      </>
+          </div>
+        ))}
     </div>
   );
 }

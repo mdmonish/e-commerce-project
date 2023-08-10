@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { fetchUsers } from "../actions/actions";
-function Login({ isLogIn, setLogIn }) {
+function Login({ isLogIn, setLogIn,setUser }) {
   let history = useNavigate();
 
   const dispatch = useDispatch();
@@ -28,6 +28,7 @@ function Login({ isLogIn, setLogIn }) {
     if (usercheck) {
       console.log("Login successful");
       setLogIn(true);
+      setUser(usercheck.username)
       history("/cart");
     } else {
       console.log("Wrong password or username");
@@ -48,14 +49,14 @@ function Login({ isLogIn, setLogIn }) {
     //   .catch((err) => console.log("error", err));
   }, [dispatch]);
   return (
-    <div>
+    <>
       {isLogIn ? (
         <div>
           <h2>Already loggedIn, Want to log out</h2>
           <button onClick={logout}>LogOut</button>
         </div>
       ) : (
-        <div>
+        <div className="login__container">
           <h2>Login Page</h2>
           <input
             style={{ padding: 6 }}
@@ -76,7 +77,7 @@ function Login({ isLogIn, setLogIn }) {
           <button onClick={checkUser}>Login</button>
         </div>
       )}
-    </div>
+    </>
   );
 }
 

@@ -1,47 +1,51 @@
-
-function Cart({ cart, setCart,isLogIn,setLogIn }) {
-
+function Cart({ cart, setCart, isLogIn, setLogIn }) {
   const handleClick = () => {
-    if(isLogIn){
-    alert("Order Placed");
-    setCart([]);
-    }
-    else{
-        alert('LoginRequired')
+    if (isLogIn) {
+      alert("Order Placed");
+      setCart([]);
+    } else {
+      alert("LoginRequired");
     }
   };
-  const handleDelete = (item)=>{
-    const newcart = cart.filter((val)=> val.id !== item);
-    setCart(newcart)
-  }
- 
+  const handleDelete = item => {
+    const newcart = cart.filter(val => val.id !== item);
+    setCart(newcart);
+  };
 
   var total = 0;
-  cart.map((c) => {
+  cart.map(c => {
     total = total + c.price;
   });
   return (
-    <div>
-      {cart.map((c) => (
-        <div>
-          <img src={c.image} alt="source not available"></img>
-          <div key={c.id}>
-            <h4>{c.title}</h4>
-            <h5>Price:&nbsp;${c.price}</h5>
-            <button onClick={()=>handleDelete(c.id)}>Remove Item</button>
+    <div className="cart__container">
+      <h2>{cart.length ? `My Cart(${cart.length})` : "Your Cart Is Empty"}</h2>
+      <div className="cart__list">
+        {cart.map(c => (
+          <div className="item__container">
+            <img
+              className="cart__image"
+              src={c.image}
+              alt="source not available"
+            ></img>
+            <div style={{ flexGrow: 1 }} key={c.id}>
+              <h4 style={{ marginBottom: 0 }}>{c.title}</h4>
+              <p style={{ marginTop: 0 }}>Rating: {c.rating?.rate}</p>
+              <div className="item__dlt_container">
+                <button onClick={() => handleDelete(c.id)}>🗑</button>
+                <h5>Price:&nbsp;$ {c.price}</h5>
+              </div>
+            </div>
           </div>
-        </div>
-      ))}
-      {cart.length > 0 ? (
-        <div>
-          <button onClick={handleClick}>Place Order</button>
-          <p>
-            <b>Total:${total}</b>
+        ))}
+      </div>
+      {cart.length > 0 && (
+        <div className="order__total-container">
+          <button className="order__btn" onClick={handleClick}>
+            Place Order
+          </button>
+          <p style={{ margin: 0 }}>
+            <b>Total:$ {parseFloat(total).toFixed(2)}</b>
           </p>
-        </div>
-      ) : (
-        <div>
-          <h2>Cart Is Empty</h2>
         </div>
       )}
     </div>

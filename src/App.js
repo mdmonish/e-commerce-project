@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
 import { BrowserRouter as Router, Link, Route, Routes } from "react-router-dom";
 import "./styles/App.css";
 import Cart from "./components/Cart";
 import Home from "./components/Home";
 import Login from "./components/Login";
-import {fetchProduct} from './actions/actions'
+import { fetchProduct } from "./actions/actions";
 import Header from "./components/Header";
 
 function App() {
@@ -13,9 +13,9 @@ function App() {
 
   const [search, setSearch] = useState("");
   const [cart, setCart] = useState([]);
+  const [user, setUser] = useState([]);
   // const [prod, setProd] = useState([]);
   const [isLogIn, setLogIn] = useState(false);
-  
 
   // const fetchProd = async () => {
   //   const base = "https://fakestoreapi.com/products";
@@ -33,8 +33,8 @@ function App() {
     //   .catch((err) => console.log("error", err));
   }, [dispatch]);
 
-  const addToCart = (item) => {
-    let index = cart.find((val) => val.id === item.id);
+  const addToCart = item => {
+    let index = cart.find(val => val.id === item.id);
     if (!index) {
       setCart([...cart, item]);
     } else {
@@ -44,8 +44,8 @@ function App() {
 
   return (
     <Router>
-      <div className="App">
-  <Header setSearch={setSearch} cart={cart} isLogIn={isLogIn}/>
+      <div className="App"> 
+        <Header setSearch={setSearch} cart={cart} isLogIn={isLogIn} user={user} />
         <Routes>
           <Route
             path="/"
@@ -55,6 +55,7 @@ function App() {
                 addToCart={addToCart}
                 isLogIn={isLogIn}
                 setLogIn={setLogIn}
+                
               />
             }
           ></Route>
@@ -71,12 +72,7 @@ function App() {
           ></Route>
           <Route
             path="/login"
-            element={
-              <Login
-                isLogIn={isLogIn}
-                setLogIn={setLogIn}
-              />
-            }
+            element={<Login isLogIn={isLogIn} setLogIn={setLogIn} setUser={setUser}/>}
           ></Route>
         </Routes>
       </div>
