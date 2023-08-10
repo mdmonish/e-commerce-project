@@ -6,6 +6,7 @@ import Cart from "./components/Cart";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import {fetchProduct} from './actions/actions'
+import Header from "./components/Header";
 
 function App() {
   const dispatch = useDispatch();
@@ -44,39 +45,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <header
-          className="App-header"
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-evenly",
-          }}
-        >
-          <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-            MeriDukan
-          </Link>
-          <input
-            style={{ padding: 6 }}
-            type="text"
-            placeholder="search here"
-            onChange={(e) => {
-              setSearch(e.target.value);
-            }}
-          />
-          <div>
-            <Link to="/login">
-              <button id="cart">
-                {!isLogIn ? <p>Login</p> : <p>LoggedIn</p>}
-              </button>
-            </Link>
-            <Link to="/cart">
-              <button id="cart">Cart</button>
-            </Link>
-            <span style={{ marginTop: 10 }}>
-              {cart.length ? <h2>{cart.length}</h2> : null}
-            </span>
-          </div>
-        </header>
+  <Header setSearch={setSearch} cart={cart} isLogIn={isLogIn}/>
         <Routes>
           <Route
             path="/"
