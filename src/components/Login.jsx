@@ -58,8 +58,8 @@ function Login({ isLogIn, setLogIn,setUser }) {
       ) : (
         <div className="login__container">
           <h2>Login Page</h2>
-          <input
-            style={{ padding: 6 }}
+          <div><input
+            style={{ padding: 6,margin: "20px 0" }}
             type="email"
             placeholder="email"
             onChange={(e) => {
@@ -67,14 +67,14 @@ function Login({ isLogIn, setLogIn,setUser }) {
             }}
           />
           <input
-            style={{ padding: 6 }}
+            style={{ padding: 6,margin: "20px 0"  }}
             type="password"
             placeholder="password"
             onChange={(e) => {
               setPassword(e.target.value);
             }}
-          />
-          <button onClick={checkUser}>Login</button>
+          /></div>
+          <div style={{display:"flex"}}> <button style={{flexGrow:0.6,padding: "5px 27px",marginTop:10}}onClick={checkUser}>Login</button></div>
         </div>
       )}
     </>
