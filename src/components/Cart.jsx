@@ -20,7 +20,7 @@ function Cart({ cart, setCart, isLogIn, setLogIn }) {
     <div className="cart__container">
       <h2>{cart.length ? `My Cart(${cart.length})` : "Your Cart Is Empty"}</h2>
       <div className="cart__list">
-        {cart.map(c => (
+        {cart?.map(c => (
           <div className="item__container">
             <img
               className="cart__image"

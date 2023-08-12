@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { BrowserRouter as Router, Link, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router,Route, Routes } from "react-router-dom";
 import "./styles/App.css";
 import Cart from "./components/Cart";
 import Home from "./components/Home";

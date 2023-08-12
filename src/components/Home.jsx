@@ -8,7 +8,7 @@ function Home({ search, addToCart }) {
      className="home__container"
     >
       {prod
-        .filter(item => {
+        ?.filter(item => {
           if (item.title.toLowerCase().includes(search.toLowerCase()))
             return item;
         })
