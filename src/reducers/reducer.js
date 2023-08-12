@@ -29,5 +29,7 @@ export const usersReducer =(state=userState,action)=>{
 
 }
 
+const  reducers= {productReducer:productReducer,usersReducer:usersReducer}
 
-export default {productReducer,usersReducer};
+
+export default reducers;
