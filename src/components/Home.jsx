@@ -1,17 +1,21 @@
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 function Home({ search, addToCart }) {
   const prod = useSelector(state => state.prod.product);
+  const [filters,setFilters] = useState([]);
+
+  useEffect(()=>{
+    const filtered = prod.filter(item=> item.title.toLowerCase().includes(search.toLowerCase()))
+   
+    setFilters(filtered);
+  },[prod,search]);
 
   return (
     <div
      className="home__container"
     >
-      {prod
-        ?.filter(item => {
-          if (item.title.toLowerCase().includes(search.toLowerCase()))
-            return item;
-        })
+      {filters
         ?.map(item => (
           <div
             style={{  }}
