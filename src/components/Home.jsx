@@ -12,7 +12,7 @@ function Home({ search, addToCart }) {
           if (item.title.toLowerCase().includes(search.toLowerCase()))
             return item;
         })
-        .map(item => (
+        ?.map(item => (
           <div
             style={{  }}
             className="prod__container"

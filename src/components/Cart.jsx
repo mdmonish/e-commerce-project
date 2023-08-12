@@ -1,4 +1,7 @@
 function Cart({ cart, setCart, isLogIn, setLogIn }) {
+
+  console.log("cart",cart)
+
   const handleClick = () => {
     if (isLogIn) {
       alert("Order Placed");
@@ -7,21 +10,22 @@ function Cart({ cart, setCart, isLogIn, setLogIn }) {
       alert("LoginRequired");
     }
   };
-  const handleDelete = item => {
-    const newcart = cart.filter(val => val.id !== item);
+  const handleDelete = (item) => {
+    const newcart = cart?.filter(val => val.id !== item);
     setCart(newcart);
   };
 
-  var total = 0;
-  cart.map(c => {
-    total = total + c.price;
-  });
+  let total = 0;
+ for(let i=0;i<cart.length;i++){
+  total+=cart[i].price;
+ }
+
   return (
     <div className="cart__container">
       <h2>{cart.length ? `My Cart(${cart.length})` : "Your Cart Is Empty"}</h2>
       <div className="cart__list">
         {cart?.map(c => (
-          <div className="item__container">
+          <div className="item__container" key={c.id}>
             <img
               className="cart__image"
               src={c.image}
