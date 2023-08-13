@@ -39,6 +39,9 @@ input {
   text-decoration: none;
   color: white;
   margin-right: 10px;
+  :hover{
+    color:salmon;
+  }
 }
 
 .home__container {
@@ -130,7 +133,8 @@ input {
   display:flex;justify-content:space-between; align-items:center;
 }
 .login__container{
-  display: block;
+  display: block;text-align: center;
+  /* justify-content: center; */
   margin: 0 auto;
   width: 30%;
 }
