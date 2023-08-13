@@ -14,11 +14,19 @@ span {
   position: absolute;
   font-size: 8px;
   color: white;
+  margin-top: -10px;
+
+  &:hover{
+    color: salmon;
+  }
 }
 
 .link {
   text-decoration: none;
-  color: white
+  color: white;
+  &:hover{
+    color:salmon
+  }
 }
 
 input {
@@ -39,7 +47,7 @@ input {
   text-decoration: none;
   color: white;
   margin-right: 10px;
-  :hover{
+  &:hover{
     color:salmon;
   }
 }

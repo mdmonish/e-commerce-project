@@ -1,13 +1,15 @@
+import { useNavigate } from "react-router-dom";
+
 function Cart({ cart, setCart, isLogIn, setLogIn }) {
 
-  console.log("cart",cart)
-
+  const history = useNavigate();
   const handleClick = () => {
     if (isLogIn) {
       alert("Order Placed");
       setCart([]);
     } else {
-      alert("LoginRequired");
+      console.log("")
+      history("/login")
     }
   };
   const handleDelete = (item) => {

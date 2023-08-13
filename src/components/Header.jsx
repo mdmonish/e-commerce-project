@@ -22,7 +22,7 @@ const Header = ({ cart, setSearch, isLogIn,user}) => {
         <div className="action__container">
        
           {!isLogIn ?<Link className="link__text" to="/login">Login</Link>: <Link className="link__text" to="/login">Welcome back, {user}</Link>}
-          <Link style={{textDecoration: "none", color:"white"}} to="/cart">
+          <Link className="link__text" to="/cart">
             Cart
             <span>
               {cart.length ? <h2>{cart.length}</h2> : null}
