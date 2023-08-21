@@ -4,6 +4,6 @@
 - Users can filter products using keyword searching.
 
 
-This site was built using [live demo](https://deluxe-kitten-2406d5.netlify.app/)
+This site was built using [live demo](https://meri-dukkan.netlify.app/)
 
 
