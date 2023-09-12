@@ -3,7 +3,7 @@
 - fetching products and users through Api and placing orders.
 - Users can filter products using keyword searching.
 
-
-This site was built using [live demo](https://meri-dukkan.netlify.app/)
+# Demo
+  - This is a link to the application [live demo](https://meri-dukkan.netlify.app/)
 
 
